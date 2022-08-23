@@ -1,0 +1,23 @@
+{
+  "name": "genshin-timer",
+  "version": "1.0.0",
+  "description": "DiscordBOT for Genshin that notifies resin recovery and repop time. 原神の樹脂の回復や、リポップの時間をお知らせしてくれるタイマーBOTです。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starkoka/Genshin-Timer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starkoka/Genshin-Timer/issues"
+  },
+  "homepage": "https://github.com/starkoka/Genshin-Timer#readme",
+  "dependencies": {
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1"
+  }
+}
