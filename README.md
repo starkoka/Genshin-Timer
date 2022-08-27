@@ -4,7 +4,8 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 原神の樹脂の回復や、リポップの時間をお知らせしてくれるタイマーBOTです。  
 日本語の説明は英語の説明の下にあります。  
 
-
+**This BOT is currently under development. It is not available.  
+このBOTは現在開発中です。使用できません。**
 
 ## Introduction Method
 1.Install node.js.  
