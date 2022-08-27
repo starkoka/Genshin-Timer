@@ -22,7 +22,7 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 daily="ID to which daily notifications are sent"
 alarm="ID to which alarm notifications are sent"
 ```
-6. Execute the following command.
+6.Execute the following command.
 ```
 node index.js
 ```
