@@ -9,7 +9,7 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 
 ## Introduction Method
 1.Install node.js.  
-2.Install init and node-cron using npm.  
+2.Install init.node-cron and discord.js using npm.  
 3.Place this file on your server.  
 4.Create a config.json file. Then edit it as follows  
 ```js:config.json
@@ -29,7 +29,7 @@ node index.js
 
 ## 導入方法
 1.node.jsをインストールしてください  
-2.npmを使用して、initとnode-cronをインストールしてください  
+2.npmを使用して、initとnode-cron、それにdiscord.jsをインストールしてください  
 3.このファイルをサーバーに配置してください   
 4.config.jsonを作成してください。そして、以下の通りに編集してください
 ```javascript:config.json
