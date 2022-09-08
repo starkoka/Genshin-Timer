@@ -32,16 +32,8 @@ client.on("interactionCreate", async (interaction) => {
                 value: 'デイリーミッションの更新や、週ボスの更新等をお知らせします。\n',
             },
             {
-                name: '',
-                value: '\n',
-            },
-            {
                 name: 'リポップ通知機能',
                 value: 'coming soon...\n',
-            },
-            {
-                name: '',
-                value: '\n',
             },
             {
                 name: '樹脂回復通知機能',
