@@ -1,19 +1,25 @@
-const Discord = require("discord.js");
-const config = require("./config.json");
-const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES"]});
-client.login(config.BOT_TOKEN);
+const { Client, Intents, GatewayIntentBits, Partials} = require('discord.js');
+const dotenv = require('dotenv');
 
-'use strict';
+dotenv.config();
+const token = '';
+const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: [Partials.Channel] });
 
-
-
-
-const cron = require('node-cron');
-cron.schedule('0 0 5 * * *', () => {
-    const now = new Date();
-    let date=now.getDate();
-    let day=now.getDay();
-
-    client.message.send()
-
+client.once("ready", async () => {
+    const data = [{
+        name: "about",
+        description: "about this bot",
+    }];
+    await client.application.commands.set(data, '1004598980291866694');
+    console.log("Ready!");
 });
+client.on("interactionCreate", async (interaction) => {
+    if (!interaction.isCommand()) {
+        return;
+    }
+    if (interaction.commandName === 'about') {
+        await interaction.reply('テスト');
+    }
+});
+
+client.login(token);
