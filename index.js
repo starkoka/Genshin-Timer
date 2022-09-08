@@ -25,7 +25,7 @@ client.on("interactionCreate", async (interaction) => {
             icon_url: 'https://pbs.twimg.com/profile_images/1493013339517202434/rosL8p8t_400x400.jpg',
             url: 'https://github.com/starkoka/Genshin-Timer',
         },
-        description: '原神の様々な通知を行うことができるタイマーbotです\nIt is a timer bot that can perform various notifications of Genshin\n',
+        description: '原神の様々な通知を行うことができるタイマーbotです\n\n',
         fields: [
             {
                 name: 'デイリー通知機能',
