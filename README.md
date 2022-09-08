@@ -14,7 +14,8 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 4.Create a config.json file. Then edit it as follows  
 ```js:config.json
 {
-    "BOT_TOKEN": "YOUR BOT TOKEN"
+  "prefix": "!",
+  "token": "your bot token"
 }
 ```
 5.create a config.txt file. Then edit it as follows
@@ -34,7 +35,8 @@ node index.js
 4.config.jsonを作成してください。そして、以下の通りに編集してください
 ```javascript:config.json
 {
-    "BOT_TOKEN": "botのトークンをここに入れてください"
+  "prefix": "!",
+  "token": "botのトークンをここに入れてください"
 }
 ```
 5.config.txtを作成してください。そして、以下のとおりに編集してください。

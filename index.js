@@ -1,8 +1,8 @@
 const { Client, Intents, GatewayIntentBits, Partials} = require('discord.js');
+const config = require('./config.json');
 const dotenv = require('dotenv');
 
 dotenv.config();
-const token = '';
 const client = new Client({ intents: [GatewayIntentBits.Guilds], partials: [Partials.Channel] });
 
 client.once("ready", async () => {
@@ -22,4 +22,4 @@ client.on("interactionCreate", async (interaction) => {
     }
 });
 
-client.login(token);
+client.login(config.token);
