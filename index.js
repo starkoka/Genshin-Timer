@@ -18,51 +18,32 @@ client.on("interactionCreate", async (interaction) => {
         return;
     }
     const exampleEmbed = {
-        color: 0x0099ff,
-        title: 'Some title',
-        url: 'https://discord.js.org',
+        color: 0x27668D,
+        title: 'About this bot',
         author: {
-            name: 'Some name',
-            icon_url: 'https://i.imgur.com/AfFp7pu.png',
-            url: 'https://discord.js.org',
+            name: 'Genshin-timer',
+            icon_url: 'https://pbs.twimg.com/profile_images/1493013339517202434/rosL8p8t_400x400.jpg',
+            url: 'https://github.com/starkoka/Genshin-Timer',
         },
-        description: 'Some description here',
-        thumbnail: {
-            url: 'https://i.imgur.com/AfFp7pu.png',
-        },
+        description: '原神の様々な通知を行うことができるタイマーbotです\nIt is a timer bot that can perform various notifications of Genshin',
         fields: [
             {
-                name: 'Regular field title',
-                value: 'Some value here',
+                name: 'デイリー通知機能',
+                value: 'デイリーミッションの更新や、週ボスの更新等をお知らせします。',
             },
             {
-                name: '\u200b',
-                value: '\u200b',
-                inline: false,
+                name: 'リポップ通知機能',
+                value: 'coming soon...',
             },
             {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
-            },
-            {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
-            },
-            {
-                name: 'Inline field title',
-                value: 'Some value here',
-                inline: true,
+                name: '樹脂回復通知機能',
+                value: 'coming soon...',
             },
         ],
-        image: {
-            url: 'https://i.imgur.com/AfFp7pu.png',
-        },
         timestamp: new Date().toISOString(),
         footer: {
-            text: 'Some footer text here',
-            icon_url: 'https://i.imgur.com/AfFp7pu.png',
+            text: 'Developed by @kokastar_studio',
+            icon_url: 'https://pbs.twimg.com/profile_images/1503219566478229506/0dkJeazd_400x400.jpg',
         },
     };
 
