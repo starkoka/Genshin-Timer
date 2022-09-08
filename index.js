@@ -25,19 +25,19 @@ client.on("interactionCreate", async (interaction) => {
             icon_url: 'https://pbs.twimg.com/profile_images/1493013339517202434/rosL8p8t_400x400.jpg',
             url: 'https://github.com/starkoka/Genshin-Timer',
         },
-        description: '原神の様々な通知を行うことができるタイマーbotです\nIt is a timer bot that can perform various notifications of Genshin',
+        description: '原神の様々な通知を行うことができるタイマーbotです\nIt is a timer bot that can perform various notifications of Genshin\n',
         fields: [
             {
                 name: 'デイリー通知機能',
-                value: 'デイリーミッションの更新や、週ボスの更新等をお知らせします。',
+                value: 'デイリーミッションの更新や、週ボスの更新等をお知らせします。\n',
             },
             {
                 name: 'リポップ通知機能',
-                value: 'coming soon...',
+                value: 'coming soon...\n',
             },
             {
                 name: '樹脂回復通知機能',
-                value: 'coming soon...',
+                value: 'coming soon...\n',
             },
         ],
         timestamp: new Date().toISOString(),
