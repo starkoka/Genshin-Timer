@@ -33,7 +33,7 @@ client.on("interactionCreate", async (interaction) => {
             title: 'About this bot',
             author: {
                 name: 'Genshin-timer',
-                icon_url: 'https://pbs.twimg.com/profile_images/1493013339517202434/rosL8p8t_400x400.jpg',
+                icon_url: 'https://pbs.twimg.com/media/FcdR7aIaIAE75Uu?format=png&name=large',
                 url: 'https://github.com/starkoka/Genshin-Timer',
             },
             description: '原神の様々な通知を行うことができるタイマーbotです\n\n',
@@ -69,7 +69,7 @@ cron.schedule('* 5 * * *', () => {
         title: 'デイリー更新',
         author: {
             name: 'Genshin-timer',
-            icon_url: 'https://pbs.twimg.com/profile_images/1493013339517202434/rosL8p8t_400x400.jpg',
+            icon_url: 'https://pbs.twimg.com/media/FcdR7aIaIAE75Uu?format=png&name=large',
             url: 'https://github.com/starkoka/Genshin-Timer',
         },
         description: 'デイリーが更新されました。忘れずに4つ+追加報酬を受け取りましょう\n\n',
