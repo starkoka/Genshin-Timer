@@ -7,6 +7,9 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 **Currently only the daily notification function is implemented.  
 現在はデイリー通知機能のみ実装されています。**
 
+Copyright (c) 2022 kokastar  
+Released under the MIT license/MITライセンスのもとで公開  
+
 ## Introduction Method
 1.Install node.js.  
 2.Install init,date-utils,node-cron and discord.js using npm.  
