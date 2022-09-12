@@ -4,8 +4,8 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 原神の樹脂の回復や、リポップの時間をお知らせしてくれるタイマーBOTです。  
 日本語の説明は英語の説明の下にあります。  
 
-**This BOT is currently under development. It is not available.  
-このBOTは現在開発中です。使用できません。**
+**Currently only the daily notification function is implemented.  
+現在はデイリー通知機能のみ実装されています。**
 
 ## Introduction Method
 1.Install node.js.  
@@ -18,6 +18,7 @@ git clone https://github.com/starkoka/Genshin-Timer.git
 ```js:config.json
 {
   "token": "your bot token"
+  "server": "ID of the server to be added"
   "daily": "ID of the channel for which you want to receive daily notifications"
 }
 ```
@@ -37,6 +38,7 @@ git clone https://github.com/starkoka/Genshin-Timer.git
 ```javascript:config.json
 {
   "token": "botのトークン"
+  "server": "追加するサーバーのID"
   "daily":"デイリー通知を受け取るチャンネルのID"
 }
 ```
