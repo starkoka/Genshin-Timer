@@ -139,7 +139,7 @@ cron.schedule('* 5 * * *', () => {
         const friday = {
             color: 0x27668D,
             title: '金曜日になりました',
-            description: '木曜日になり、以下のものがリセットされました。\n\n',
+            description: '金曜日になり、以下のものがリセットされました。\n\n',
             fields: [
                 {
                     name: '「緋紅の願い」リセット',
