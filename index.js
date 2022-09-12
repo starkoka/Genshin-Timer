@@ -17,7 +17,7 @@ client.once("ready", async () => {
         name: "genshintimer",
         description: "about Geshin-Timer",
     }];
-    await client.application.commands.set(data, '1004598980291866694');
+    await client.application.commands.set(data, config.server);
     console.log("Ready!");
 });
 
