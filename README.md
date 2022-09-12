@@ -10,11 +10,13 @@ DiscordBOT for Genshin that notifies resin recovery and repop time.
 ## Introduction Method
 1.Install node.js.  
 2.Install init,date-utils,node-cron and discord.js using npm.  
-3.Place this file on your server.  
+3.Place clone this repository on your server.  
+```
+git clone https://github.com/starkoka/Genshin-Timer.git
+```
 4.Create a config.json file. Then edit it as follows  
 ```js:config.json
 {
-  "prefix": "!",
   "token": "your bot token"
   "daily": "ID of the channel for which you want to receive daily notifications"
 }
@@ -27,11 +29,13 @@ node index.js
 ## 導入方法
 1.node.jsをインストールしてください  
 2.npmを使用して、init、date-utils、node-cron、それにdiscord.jsをインストールしてください  
-3.このファイルをサーバーに配置してください   
+3.このリポジトリをBOTを運用するサーバーにクローンしてください
+```
+git clone https://github.com/starkoka/Genshin-Timer.git
+```
 4.config.jsonを作成してください。そして、以下の通りに編集してください
 ```javascript:config.json
 {
-  "prefix": "!",
   "token": "botのトークン"
   "daily":"デイリー通知を受け取るチャンネルのID"
 }
