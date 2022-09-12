@@ -63,7 +63,7 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 /*毎朝5時のデイリー通知*/
-cron.schedule('* 5 * * *', () => {
+cron.schedule('0 5 * * *', () => {
     const daily = {
         color: 0x27668D,
         title: 'デイリー更新',
