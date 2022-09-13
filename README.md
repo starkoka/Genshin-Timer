@@ -27,7 +27,7 @@ git clone https://github.com/starkoka/Genshin-Timer.git
 ```
 5.Execute the following command.
 ```
-node index.js
+node genshintimer.js
 ```
 
 ## 導入方法
@@ -47,5 +47,5 @@ git clone https://github.com/starkoka/Genshin-Timer.git
 ```
 5.以下のコマンドを実行してください。
 ```
-node index.js
+node genshintimer.js
 ```
