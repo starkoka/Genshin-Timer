@@ -32,8 +32,8 @@ client.once("ready", async () => {
             description: "通知してほしい樹脂の数を入力します",
             required: true,
         }]
-     */
-    }];
+
+    }];*/
 
     await client.application.commands.set(genshintimer);
     /*await client.application.commands.set(jushi);*/
