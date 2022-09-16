@@ -5,21 +5,41 @@ const cron = require('node-cron');
 require('date-utils');
 
 dotenv.config();
+
 const client = new Client({
     intents: [GatewayIntentBits.Guilds],
     partials: [Partials.Channel],
 });
 
-
 /*スラッシュコマンド登録*/
 client.once("ready", async () => {
-    const data = [{
+    const genshintimer = [{
         name: "genshintimer",
         description: "about Geshin-Timer",
     }];
-    await client.application.commands.set(data, config.server);
+    /*
+    const jushi = [{
+        name: "jushi",
+        description: "樹脂が設定した量まで回復したら通知します",
+        options:[{
+            type:"STRING",
+            name:"現在",
+            description: "現在の天然樹脂の数を入力します",
+            required: true,
+        },{
+            type:"STRING",
+            name:"通知量",
+            description: "通知してほしい樹脂の数を入力します",
+            required: true,
+        }]
+     */
+    }];
+
+    await client.application.commands.set(genshintimer);
+    /*await client.application.commands.set(jushi);*/
     console.log("Ready!");
 });
+
 
 /*実際の動作*/
 client.on("interactionCreate", async (interaction) => {
