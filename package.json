@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/starkoka/Genshin-Timer#readme",
   "dependencies": {
+    "@discordjs/rest": "^1.2.0",
     "date-utils": "^1.2.21",
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.1",

@@ -13,30 +13,40 @@ const client = new Client({
 
 /*スラッシュコマンド登録*/
 client.once("ready", async () => {
-    const genshintimer = [{
+    const genshintimer = {
         name: "genshintimer",
         description: "about Geshin-Timer",
-    }];
+    };
+
     /*
-    const jushi = [{
+    const jushi = {
         name: "jushi",
         description: "樹脂が設定した量まで回復したら通知します",
         options:[{
-            type:"STRING",
+            type:3,
             name:"現在",
             description: "現在の天然樹脂の数を入力します",
             required: true,
-        },{
-            type:"STRING",
-            name:"通知量",
-            description: "通知してほしい樹脂の数を入力します",
+        }],
+
+    };
+    */
+
+
+    const score = {
+        name: "score",
+        description: "聖遺物のスコアを入れてね",
+        options:[{
+            type:3,
+            name:"スコア",
+            description: "聖遺物のスコア(サブOPの率✕2+ダメージ+攻撃%)",
             required: true,
-        }]
+        }],
 
-    }];*/
+    };
 
-    await client.application.commands.set(genshintimer);
-    /*await client.application.commands.set(jushi);*/
+    /*await client.application.commands.set([jushi,genshintimer,score]);*/
+    await client.application.commands.set([genshintimer,score]);
     console.log("Ready!");
 });
 
@@ -56,7 +66,7 @@ client.on("interactionCreate", async (interaction) => {
                 icon_url: 'https://pbs.twimg.com/media/FcdR7aIaIAE75Uu?format=png&name=large',
                 url: 'https://github.com/starkoka/Genshin-Timer',
             },
-            description: '原神の様々な通知を行うことができるタイマーbotです\n\n',
+            description: '原神の様々な通知を行うことができるタイマーbotです\n(よくわからない謎の機能もあります)\n',
             fields: [
                 {
                     name: '​\nデイリー通知機能',
@@ -80,6 +90,38 @@ client.on("interactionCreate", async (interaction) => {
         await interaction.reply({ embeds: [about] });
 
     }
+    if (interaction.commandName === 'score') {
+        if (interaction.options.getString('スコア') == 33.4  ) {
+            await interaction.reply('なんでや！阪神関係ないやろ！');
+        }
+        else if (interaction.options.getString('スコア') == 44.5  ) {
+            await interaction.reply('あてぃし！？');
+        }
+        else if (interaction.options.getString('スコア') < 30  ) {
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'は流石に経験値にしようか:)');
+        }
+        else if(interaction.options.getString('スコア') < 40){
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'、時計/杯/冠なら強いんじゃない〜?');
+        }
+        else if(interaction.options.getString('スコア') < 50){
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'って強くない？');
+        }
+        else if(interaction.options.getString('スコア') < 60){
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'だとぉ？:face_with_symbols_over_mouth: ふざけるなぁ:sparkler:');
+        }
+        else if(interaction.options.getString('スコア') < 60.4){
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'ってまじで言ってる？？？え？？？？');
+        }
+        else if(interaction.options.getString('スコア') < 0){
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'ってなんだよ、負の値じゃんwww');
+        }
+        else{
+            await interaction.reply('スコア'+interaction.options.getString('スコア')+'ってなんだよ、嘘つくな:face_with_symbols_over_mouth:');
+        }
+
+
+    }
+
 });
 
 /*毎朝5時のデイリー通知*/
