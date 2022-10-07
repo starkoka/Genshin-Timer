@@ -1,4 +1,4 @@
-const { Client, Intents, GatewayIntentBits, Partials} = require('discord.js');
+const { Client,  GatewayIntentBits, Partials} = require('discord.js');
 const config = require('./config.json');
 const dotenv = require('dotenv');
 const cron = require('node-cron');
@@ -18,7 +18,7 @@ client.once("ready", async () => {
         description: "about Geshin-Timer",
     };
 
-    /*
+
     const jushi = {
         name: "jushi",
         description: "樹脂が設定した量まで回復したら通知します",
@@ -27,10 +27,20 @@ client.once("ready", async () => {
             name:"現在",
             description: "現在の天然樹脂の数を入力します",
             required: true,
+        },{
+            type:3,
+            name:"通知量",
+            description: "通知してほしい樹脂の数を入力します",
+            required: true,
+        },{
+            type:3,
+            name:"次の回復",
+            description: "次の回復までの時間を分単位で入力します",
+            required: false,
         }],
 
     };
-    */
+
 
 
     const score = {
@@ -45,11 +55,9 @@ client.once("ready", async () => {
 
     };
 
-    /*await client.application.commands.set([jushi,genshintimer,score]);*/
-    await client.application.commands.set([genshintimer,score]);
+    await client.application.commands.set([jushi,genshintimer,score]);
     console.log("Ready!");
 });
-
 
 /*実際の動作*/
 client.on("interactionCreate", async (interaction) => {
@@ -73,11 +81,11 @@ client.on("interactionCreate", async (interaction) => {
                     value: 'デイリーミッションの更新や、週ボスの更新等をお知らせします。\n',
                 },
                 {
-                    name: '​\nリポップ通知機能',
-                    value: 'coming soon...\n',
+                    name: '​\n樹脂回復通知機能',
+                    value: '現在の樹脂と、お知らせしてほしい樹脂の量を指定すると、その値まで樹脂が回復したらお知らせしてくれます。\n',
                 },
                 {
-                    name: '​\n樹脂回復通知機能',
+                    name: '​\nリポップ通知機能',
                     value: 'coming soon...\n',
                 },
             ],
@@ -121,8 +129,56 @@ client.on("interactionCreate", async (interaction) => {
 
 
     }
+    if (interaction.commandName === 'jushi') {
+        let second
+        if(interaction.options.getString("次の回復")===null){
+            second = (interaction.options.getString("通知量")-interaction.options.getString("現在"))*8
+        }
+        else{
+            second = (interaction.options.getString("通知量")-interaction.options.getString("現在"))*8-(8-interaction.options.getString("次の回復"))
+        }
+        second=second*60*1000
+        setTimeout(function (){jushi(interaction.user.id,interaction.options.getString("通知量"),config.notice)},second);
+        const enbed = {
+            color: 0x27668D,
+            title: '樹脂回復通知',
+            author: {
+                name: 'Genshin-timer',
+                icon_url: 'https://pbs.twimg.com/media/FcdR7aIaIAE75Uu?format=png&name=large',
+                url: 'https://github.com/starkoka/Genshin-Timer',
+            },
+            description: `<@!${interaction.user.id}>さん、樹脂が回復したらお知らせします。\n※次回回復までの時刻を指定してない場合、最大8分の誤差があります。`,
+            timestamp: new Date().toISOString(),
+            footer: {
+                text: 'Developed by @kokastar_studio',
+                icon_url: 'https://pbs.twimg.com/profile_images/1503219566478229506/0dkJeazd_400x400.jpg',
+            },
+        };
+        await interaction.reply({ embeds: [enbed] })
+    }
 
 });
+
+/*樹脂通知の関数*/
+function jushi(user,notice,chanel){
+    const jushi = {
+        color: 0x27668D,
+        title: '樹脂回復通知',
+        author: {
+            name: 'Genshin-timer',
+            icon_url: 'https://pbs.twimg.com/media/FcdR7aIaIAE75Uu?format=png&name=large',
+            url: 'https://github.com/starkoka/Genshin-Timer',
+        },
+        description: `<@!${user}>さん、樹脂が${notice}まで回復しました`,
+        timestamp: new Date().toISOString(),
+        footer: {
+            text: 'Developed by @kokastar_studio',
+            icon_url: 'https://pbs.twimg.com/profile_images/1503219566478229506/0dkJeazd_400x400.jpg',
+        },
+    };
+    client.channels.cache.get(`${chanel}`).send(`<@!${user}>`)
+    client.channels.cache.get(`${chanel}`).send({ embeds: [jushi] })
+}
 
 /*毎朝5時のデイリー通知*/
 cron.schedule('0 5 * * *', () => {
@@ -145,7 +201,7 @@ cron.schedule('0 5 * * *', () => {
     var dt = new Date();
     var dayofweek = dt.getDay();
     var date = dt.getDate();
-    if(dayofweek==1){ /*月曜日*/
+    if(dayofweek===1){ /*月曜日*/
         const monday = {
             color: 0x27668D,
             title: '新しい週が始まりました',
@@ -181,7 +237,7 @@ cron.schedule('0 5 * * *', () => {
         client.channels.cache.get(config.daily).send({embeds: [monday]})
     }
 
-    if(dayofweek==4){ /*木曜日*/
+    if(dayofweek===4){ /*木曜日*/
         const thursday = {
             color: 0x27668D,
             title: '木曜日になりました',
@@ -197,7 +253,7 @@ cron.schedule('0 5 * * *', () => {
         client.channels.cache.get(config.daily).send({embeds: [thursday]})
     }
 
-    if(dayofweek==5){ /*金曜日*/
+    if(dayofweek===5){ /*金曜日*/
         const friday = {
             color: 0x27668D,
             title: '金曜日になりました',
@@ -217,7 +273,7 @@ cron.schedule('0 5 * * *', () => {
         client.channels.cache.get(config.daily).send({embeds: [friday]})
     }
 
-    if(dayofweek==6){ /*土曜日*/
+    if(dayofweek===6){ /*土曜日*/
         const saturday = {
             color: 0x27668D,
             title: '土曜日になりました',
@@ -232,7 +288,7 @@ cron.schedule('0 5 * * *', () => {
         };
         client.channels.cache.get(config.daily).send({embeds: [saturday]})
     }
-    if(date%3==0){ /*3の倍数の日*/
+    if(date%3===0){ /*3の倍数の日*/
         const multiple = {
             color: 0x27668D,
             title: 'アイテム購入リセット',
@@ -241,7 +297,7 @@ cron.schedule('0 5 * * *', () => {
         };
         client.channels.cache.get(config.daily).send({embeds: [multiple]})
     }
-    if(date%3==1){ /*3の倍数+1の日*/
+    if(date%3===1){ /*3の倍数+1の日*/
         const multiple2 = {
             color: 0x27668D,
             title: 'アイテム購入リセット',
@@ -251,7 +307,7 @@ cron.schedule('0 5 * * *', () => {
         client.channels.cache.get(config.daily).send({embeds: [multiple2]})
     }
 
-    if(date==1){ /*毎月1日*/
+    if(date===1){ /*毎月1日*/
         const first = {
             color: 0x27668D,
             title: '1日になりました',
@@ -270,7 +326,7 @@ cron.schedule('0 5 * * *', () => {
         };
         client.channels.cache.get(config.daily).send({embeds: [first]})
     }
-    if(date==16){ /*毎月16日*/
+    if(date===16){ /*毎月16日*/
         const sixteenth = {
             color: 0x27668D,
             title: '16日になりました',
