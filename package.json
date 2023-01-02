@@ -1,6 +1,6 @@
 {
   "name": "genshin-timer",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "DiscordBOT for Genshin that notifies resin recovery and repop time. 原神の樹脂の回復や、リポップの時間をお知らせしてくれるタイマーBOTです。",
   "main": "index.js",
   "scripts": {
